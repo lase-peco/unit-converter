@@ -1,0 +1,45 @@
+{
+    "name": "lase-peco/unit-converter",
+    "description": "A simple unit converter.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LasePeCo\\UnitConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LasePeCo\\UnitConverter\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ahmed Dabak",
+            "email": "a.dabak@lase-peco.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.20",
+        "phpunit/phpunit": "^9.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LasePeCo\\UnitConverter\\ServiceProvider"
+            ],
+            "aliases": {
+                "Converter": "LasePeCo\\UnitConverter\\Facade"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
