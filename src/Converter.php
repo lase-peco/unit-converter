@@ -10,19 +10,19 @@ use Illuminate\Support\Facades\Config;
  * @method float mass(string $from, string $to, float $weight, int $decimals = 2)
  * @method float volume(string $from, string $to, float $volume, int $decimals = 2)
  * @method float speed(string $from, string $to, float $speed, int $decimals = 2)
+ * @method float area(string $from, string $to, int $area, int $decimals = 2)
+ * @method float length(string $from, string $to, int $length, int $decimals = 2)
+ * @method float density(string $from, string $to, int $density, int $decimals = 2)
  */
 class Converter
 {
     public function convert(string $type, string $from, string $to, float $value, int $decimals = 2): float
     {
-        $from_rate = Config::get("conversions.{$type}.{$from}");
-        $to_rate = Config::get("conversions.{$type}.{$to}");
-
-        if (is_null($from_rate)) {
+        if (!$from_rate = Config::get("conversions.{$type}.{$from}")) {
             throw new Exception("From unit:{$type}/{$from} not known");
         }
 
-        if (is_null($to_rate)) {
+        if (!$to_rate = Config::get("conversions.{$type}.{$to}")) {
             throw new Exception("To unit:{$type}/{$to} not known");
         }
 
