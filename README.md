@@ -14,7 +14,7 @@ The config file `conversions.php` contains all units of measurement and its valu
 
 ## Define your own units
 
-First add your unit in the config file und the matching section, then it is recommended to create a class That extends the base base package class.
+First add your unit in the config file und the matching section, then it is recommended to create a class That extends the base package class.
 
 Example:
 Say you want to add `KM^2` as an `Area` unit, first add the unit in the config file:
