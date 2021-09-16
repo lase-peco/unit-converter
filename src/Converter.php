@@ -29,7 +29,7 @@ class Converter
         return round(($value / $from_rate) * $to_rate, $decimals);
     }
 
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         return call_user_func([$this, 'convert'], ... Arr::prepend($arguments, $name));
     }
