@@ -2,7 +2,7 @@
 
 namespace LasePeCo\UnitConverter\Tests;
 
-use LasePeCo\UnitConverter\Facade as Converter;
+use LasePeCo\UnitConverter\Facades\Converter;
 use LasePeCo\UnitConverter\Units\Length;
 use LasePeCo\UnitConverter\Units\Volume;
 
