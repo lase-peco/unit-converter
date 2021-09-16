@@ -1,105 +1,73 @@
-# A simple unite converter library
-<!---
- [![Latest Version on Packagist](https://img.shields.io/packagist/v/lase-peco/localization.svg?style=flat-square)](https://packagist.org/packages/lase-peco/localization)
- [![Total Downloads](https://img.shields.io/packagist/dt/lase-peco/localization.svg?style=flat-square)](https://packagist.org/packages/lase-peco/localization)
--->
-[comment]: <> ([![Build Status]&#40;https://img.shields.io/travis/lase-peco/localization/master.svg?style=flat-square&#41;]&#40;https://travis-ci.org/lase-peco/localization&#41;)
-[comment]: <> ([![Quality Score]&#40;https://img.shields.io/scrutinizer/g/lase-peco/localization.svg?style=flat-square&#41;]&#40;https://scrutinizer-ci.com/g/lase-peco/localization&#41;)
-
+# Unit converter
 A simple unite converter library
 
-## Notes
-
-This document is a work in progress!
-
-
 ## Installation
-
-You can install the package via composer:
-
+Install the package via composer:
 ```bash
 composer require lase-peco/unit-converter
 ```
-
 Then publish the config file `conversions.php` with the following command
-
 ``` php 
 php artisan vendor:publish --provider="LasePeCo\UnitConverter\ServiceProvider"
 ```
-The config file `conversions.php` contains all units of measurement and its values, that are implemented in this package.
-You can add your own units of measurement there.
+The config file `conversions.php` contains all units of measurement and its values.
 
-##Converting and measuring units
-This package is able to convert area, density, length, mass, volume and speed. 
+## Define your own units
 
-The package provide you with 6 Classes in Which are constants defined, which you can use by converting. 
-
-It is recommended to create your own classes and extend these classes as a base class to be used during conversion
+First add your unit in the config file und the matching section, then it is recommended to create a class That extends the base base package class.
 
 Example:
-
-Create a unites folder in your application and in it create an Area class which extends the Area class of this package.
-
-``` php
-<?php
-
-namespace App\Units;
-
-use LasePeCo\UnitConverter\Units\Area as BaseArea;
-
-class Area extends BaseArea
-{
-    public const MySquareKiloMeter = 'km^2';
-}
-```
-The benefit of using these classes or extending it in your oun class are that you avoid typos during conversion.
-
-Of course don't forget to define it as well in the config file ander area:
+Say you want to add `KM^2` as an `Area` unit, first add the unit in the config file:
 ``` php 
 'area' => [
         'mm^2' => 1000000,
         'm^2' => 1, // base unit.
         'ft^2' => 10.7639,
         'yd^2' => 1.19598888894151,
-        'km^2' => 0.00000001, // your new unit and its value compared to the base unit.
+        'km^2' => 0.000001, // your new unit and its value compared to the base unit.
     ],
 ```
+
+Then create `Area` class in `App\Units\` which should extends the base `Area` class of this package:
+``` php
+<?php
+namespace App\Units;
+use LasePeCo\UnitConverter\Units\Area as BaseArea;
+
+class Area extends BaseArea
+{
+    public const SquareKiloMeter = 'km^2';
+}
+```
+We recommend using these classes to avoid typos in your code.
+
 ## Usage
 
+This package is able to convert area, density, length, mass, volume and speed. Each of these have it own class where the units are defined as constants, to provide some strong typing.
+
 ### Area 
+The implemented area units are: `SquareMillimeter, SquareMeter, SquareFoot, SquareYard`.
 
-The implemented measuring units for an area or a surface are: `SquareMillimeter, SquareMeter, SquareFoot, SquareYard`.
-
-To convert an area or a surface from one measuring unit to another call the `area( $from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
+Using the `Converter` facade:
+``` php
+Converter::area( $from_unit, $to_unit, $measurement, $decimals)
+```
 
 `string $from_unit` the unit, from which you are converting.
-
 `string $to_unit` the unit, to which you are converting.
-
 `float $measurement` the value.
-
 `int $decimals` (optional) the decimal accuracy. default is 2.
 
-Example 1
-
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Area;
 
-Converter::area(Area::MySquareKiloMeter, Area::SquareMeter, 1); // return 100000000.0
-```
-Example 2
-
-``` php
-use LasePeCo\UnitConverter\Facades\Converter;
-use App\Units\Area;
-
+Converter::area(Area::SquareKiloMeter, Area::SquareMeter, 1); // return 1000000
 Converter::area(Area::SquareMeter, Area::SquareYard, 10, 4); // return 11.9599
 ``` 
 
 ### Density
-
-The implemented measuring units for density are: `KilogramPerCubicMeter, TonPerCubicMeter, PoundPerCubicFoot`.
+The implemented density units are: `KilogramPerCubicMeter, TonPerCubicMeter, PoundPerCubicFoot`.
 
 To convert density from one measuring unit to another call the `density($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
 
