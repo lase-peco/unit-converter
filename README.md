@@ -43,20 +43,17 @@ We recommend using these classes to avoid typos in your code.
 
 ## Usage
 
-This package is able to convert area, density, length, mass, volume and speed. Each of these have it own class where the units are defined as constants, to provide some strong typing.
+This package is able to convert `area`, `density`, `length`, `mass`, `volume` and `speed`, these are functions you can call on the `Converter` facade. Each of them have its own class where the units are defined as constants, to provide some strong typing.
 
-### Area 
-The implemented area units are: `SquareMillimeter, SquareMeter, SquareFoot, SquareYard`.
-
-Using the `Converter` facade:
-``` php
-Converter::area( $from_unit, $to_unit, $measurement, $decimals)
-```
+All of these functions accept the same parameters:
 
 `string $from_unit` the unit, from which you are converting.
 `string $to_unit` the unit, to which you are converting.
 `float $measurement` the value.
 `int $decimals` (optional) the decimal accuracy. default is 2.
+
+### Area 
+The implemented area units are: `SquareMillimeter, SquareMeter, SquareFoot, SquareYard`.
 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
@@ -64,22 +61,12 @@ use App\Units\Area;
 
 Converter::area(Area::SquareKiloMeter, Area::SquareMeter, 1); // return 1000000
 Converter::area(Area::SquareMeter, Area::SquareYard, 10, 4); // return 11.9599
-``` 
+```
+
 
 ### Density
 The implemented density units are: `KilogramPerCubicMeter, TonPerCubicMeter, PoundPerCubicFoot`.
 
-To convert density from one measuring unit to another call the `density($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
-
-`string $from_unit` the unit, from which you are converting.
-
-`string $to_unit` the unit, to which you are converting.
-
-`float $measurement` the value.
-
-`int $decimals` (optional) the decimal accuracy. default is 2.
-
-Example 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Density;
@@ -88,20 +75,8 @@ Converter::density(Density::KilogramPerCubicMeter, Density::PoundPerCubicFoot, 1
 ```
 
 ### Length
+The implemented length units are: `Millimeter, Meter, Inch`.
 
-The implemented measuring units for length are: `Millimeter, Meter, Inch`.
-
-To convert length from one measuring unit to another call the `length($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
-
-`string $from_unit` the unit, from which you are converting.
-
-`string $to_unit` the unit, to which you are converting.
-
-`float $measurement` the value.
-
-`int $decimals` (optional) the decimal accuracy. default is 2.
-
-Example 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Length;
@@ -110,20 +85,8 @@ Converter::length(Length::Meter, Length::Inch, 1, 4); // return 39.3701
 ```
 
 ### Mass
+The implemented mass units are: `Kilogram, Ton, ImperialTon, USTon, Pound, Gram, Ounce`.
 
-The implemented measuring units for mass are: `Kilogram, Ton, ImperialTon, USTon, Pound, Gram, Ounce`.
-
-To convert length from one measuring unit to another call the `mass($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
-
-`string $from_unit` the unit, from which you are converting.
-
-`string $to_unit` the unit, to which you are converting.
-
-`float $measurement` the value.
-
-`int $decimals` (optional) the decimal accuracy. default is 2.
-
-Example 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Mass;
@@ -132,21 +95,8 @@ Converter::mass(Mass::Kilogram, Mass::Pound, 1); // return 2.2
 ```
 
 ### Volume
+The implemented volume units are: `CubicDecimeter, CubicMeter, CubicFoot, CubicYard`.
 
-The implemented measuring units for volume are: `CubicDecimeter, CubicMeter, CubicFoot, CubicYard`.
-
-To convert volume from one measuring unit to another call the `volume($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
-
-`string $from_unit` the unit, from which you are converting.
-
-`string $to_unit` the unit, to which you are converting.
-
-`float $measurement` the value.
-
-`int $decimals` (optional) the decimal accuracy. default is 2.
-
-
-Example 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Volume;
@@ -156,20 +106,8 @@ Converter::volume(Volume::CubicMeter, Volume::CubicFoot, 1); // return 35.31
 
 ### Speed
 
-The implemented measuring units for speed are: `MillimeterPerSecond, MeterPerSecond, FootPerSecond, YardPerSecond`.
+The implemented speed units are: `MillimeterPerSecond, MeterPerSecond, FootPerSecond, YardPerSecond`.
 
-To convert speed from one measuring unit to another call the `speed($from_unit, $to_unit, $measurement, $decimals)` on the `Converter` facade with the following parameters:
-
-`string $from_unit` the unit, from which you are converting.
-
-`string $to_unit` the unit, to which you are converting.
-
-`float $measurement` the value.
-
-`int $decimals` (optional) the decimal accuracy. default is 2.
-
-
-Example 
 ``` php
 use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Speed;
