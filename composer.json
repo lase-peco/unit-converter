@@ -24,7 +24,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.20",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.9"
     },
     "extra": {
         "laravel": {
@@ -37,9 +38,12 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit --no-coverage",
+        "psalm": "vendor/bin/psalm --show-info=true"
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
