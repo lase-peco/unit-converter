@@ -3,7 +3,7 @@
 namespace LasePeCo\UnitConverter\Tests;
 
 use Illuminate\Support\Str;
-use LasePeCo\UnitConverter\Facade as Converter;
+use LasePeCo\UnitConverter\Facades\Converter;
 use LasePeCo\UnitConverter\Units\Volume;
 
 class ConverterTest extends TestCase
