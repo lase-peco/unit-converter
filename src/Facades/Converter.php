@@ -1,8 +1,8 @@
 <?php
 
-namespace LasePeCo\UnitConverter;
+namespace LasePeCo\UnitConverter\Facades;
 
-use Illuminate\Support\Facades\Facade as BaseFacade;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static float mass(string $from, string $to, float $weight, int $decimals = 2)
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade as BaseFacade;
  * @method static float length(string $from, string $to, int $length, int $decimals = 2)
  * @method static float density(string $from, string $to, int $density, int $decimals = 2)
  */
-class Facade extends BaseFacade
+class Converter extends Facade
 {
     /**
      * Get the registered name of the component.

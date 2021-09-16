@@ -33,7 +33,7 @@
                 "LasePeCo\\UnitConverter\\ServiceProvider"
             ],
             "aliases": {
-                "Converter": "LasePeCo\\UnitConverter\\Facade"
+                "Converter": "LasePeCo\\UnitConverter\\Facades\\Converter"
             }
         }
     },
