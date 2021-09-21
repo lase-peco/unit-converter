@@ -43,7 +43,26 @@ We recommend using these classes to avoid typos in your code.
 
 ## Usage
 
-This package is able to convert `area`, `density`, `length`, `mass`, `volume` and `speed`, these are functions you can call on the `Converter` facade. Each of them have its own class where the units are defined as constants, to provide some strong typing.
+This package supports 4 measuring systems `Metrics`, `UK`, `US feet` and `US yards`.
+
+To get all supported measuring systems you can call the function `getSupportedSystems()` on the `Converter` facade.
+
+``` php
+use LasePeCo\UnitConverter\Facades\Converter;
+
+Converter::getSupportedSystems(); 
+
+// return
+
+ [
+  'metrics'  => 'Metrics',
+  'uk'       => 'UK',
+  'us_feet'  => 'US feet',
+  'us_yards' => 'US yards'
+ ]
+```
+
+This package is also able to convert `area`, `density`, `length`, `mass`, `volume` and `speed`, these are functions you can call on the `Converter` facade. Each of them have its own class where the units are defined as constants, to provide some strong typing.
 
 All of these functions accept the same parameters:
 
