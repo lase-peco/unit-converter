@@ -18,19 +18,26 @@ class Converter
 {
     public function convert(string $type, string $from, string $to, float $value, int $decimals = 2): float
     {
-        if (!$from_rate = Config::get("conversions.{$type}.{$from}")) {
+        if (!$from_rate = Config::get("conversions.units.{$type}.{$from}")) {
             throw new Exception("From unit:{$type}/{$from} not known");
         }
 
-        if (!$to_rate = Config::get("conversions.{$type}.{$to}")) {
+        if (!$to_rate = Config::get("conversions.units.{$type}.{$to}")) {
             throw new Exception("To unit:{$type}/{$to} not known");
         }
 
-        return round(($value / $from_rate) * $to_rate, $decimals) ;
+        return round(($value / $from_rate) * $to_rate, $decimals);
     }
 
     public function __call(string $name, array $arguments)
     {
         return call_user_func([$this, 'convert'], ... Arr::prepend($arguments, $name));
+    }
+
+    public function getSupportedSystems()
+    {
+        return array_map(function ($system) {
+            return $system['name'];
+        }, app('config')->get('conversions.systems'));
     }
 }

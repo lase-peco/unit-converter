@@ -17,7 +17,7 @@ class ConverterTest extends TestCase
     /** @test */
     public function every_unit_has_a_translation()
     {
-        foreach (config('conversions') as $category => $units) {
+        foreach (config('conversions.units') as $category => $units) {
             foreach ($units as $unit => $value) {
                 $key = "conversions::{$category}.{$unit}";
                 $translation = trans($key);
@@ -30,7 +30,7 @@ class ConverterTest extends TestCase
     /** @test */
     public function every_unit_has_a_constant()
     {
-        foreach (config('conversions') as $category => $units) {
+        foreach (config('conversions.units') as $category => $units) {
             $reflection_class = new \ReflectionClass('\LasePeCo\UnitConverter\Units\\' . Str::studly($category));
 
             foreach ($units as $unit => $value) {
@@ -53,5 +53,14 @@ class ConverterTest extends TestCase
         } catch (\Exception $exception) {
             $this->assertEquals('From unit:volume/y not known', $exception->getMessage());
         }
+    }
+
+    /** @test */
+    public function it_returns_an_array_of_all_supported_systems()
+    {
+        dd(Converter::getSupportedSystems());
+        $this->assertIsArray(Converter::getSupportedSystems());
+
+        $this->assertNotEmpty(Converter::getSupportedSystems());
     }
 }
