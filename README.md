@@ -1,4 +1,8 @@
 # Unit converter
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lase-peco/unit-converter.svg?style=flat-square)](https://packagist.org/packages/lase-peco/unit-converter)
+[![Total Downloads](https://img.shields.io/packagist/dt/lase-peco/unit-converter.svg?style=flat-square)](https://packagist.org/packages/lase-peco/unit-converter)
+
 A simple unite converter library
 
 ## Installation
