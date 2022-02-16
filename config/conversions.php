@@ -10,6 +10,7 @@ return [
             'density' => 't/m^3',
             'length' => 'm',
             'area' => 'm^2',
+            'volumetric_flow_rate' => 'm^3/h',
         ],
         'uk' => [
             'name' => 'UK',
@@ -19,6 +20,7 @@ return [
             'density' => 'lb/ft^3',
             'length' => 'in',
             'area' => 'ft^2',
+            'volumetric_flow_rate' => 'ft^3/h',
         ],
         'us_feet' => [
             'name' => 'US feet',
@@ -28,15 +30,17 @@ return [
             'density' => 'lb/ft^3',
             'length' => 'in',
             'area' => 'ft^2',
+            'volumetric_flow_rate' => 'ft^3/h',
         ],
         'us_yards' => [
             'name' => 'US yards',
             'volume' => 'yd^3',
-            'speed' => 'yd',
+            'speed' => 'yd/s',
             'mass' => 'tn.sh.',
             'density' => 'lb/ft^3',
             'length' => 'in',
             'area' => 'yd^2',
+            'volumetric_flow_rate' => 'yd^3/h',
         ],
     ],
 
@@ -62,7 +66,7 @@ return [
             'mm/s' => 1000,
             'm/s' => 1, //base unit
             'ft/s' => 3.28084,
-            'yd' => 1.09361,
+            'yd/s' => 1.09361,
         ],
 
         'length' => [
@@ -82,6 +86,13 @@ return [
             'kg/m^3' => 1, //base unit
             't/m^3' => 0.001,
             'lb/ft^3' => 0.062428,
-        ]
+        ],
+
+        'volumetric_flow_rate' => [
+            'dm^3/h' => 1000,
+            'm^3/h' => 1, //base unit
+            'ft^3/h' => 35.3147,
+            'yd^3/h' => 1.307950619,
+        ],
     ]
 ];
