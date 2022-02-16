@@ -27,7 +27,7 @@ class Converter
             throw new Exception("To unit:{$type}/{$to} not known");
         }
 
-        return round(($value / $from_rate) * $to_rate, $decimals);
+        return bcdiv(($value / $from_rate) * $to_rate,1 , $decimals);
     }
 
     public function __call(string $name, array $arguments)
