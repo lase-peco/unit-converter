@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static float area(string $from, string $to, int $area, int $decimals = 2)
  * @method static float length(string $from, string $to, int $length, int $decimals = 2)
  * @method static float density(string $from, string $to, int $density, int $decimals = 2)
+ * @method static float volumetric_flow_rate(string $from, string $to, int $density, int $decimals = 2)
  * @method static array getSupportedSystems()
  */
 class Converter extends Facade

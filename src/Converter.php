@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Config;
  * @method float area(string $from, string $to, int $area, int $decimals = 2)
  * @method float length(string $from, string $to, int $length, int $decimals = 2)
  * @method float density(string $from, string $to, int $density, int $decimals = 2)
+ * @method float volumetric_flow_rate(string $from, string $to, int $density, int $decimals = 2)
  */
 class Converter
 {
