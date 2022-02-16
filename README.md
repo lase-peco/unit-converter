@@ -66,7 +66,7 @@ Converter::getSupportedSystems();
  ]
 ```
 
-This package is also able to convert `area`, `density`, `length`, `mass`, `volume` and `speed`, these are functions you can call on the `Converter` facade. Each of them have its own class where the units are defined as constants, to provide some strong typing.
+This package is also able to convert `area`, `density`, `length`, `mass`, `volume`, `volumetric flow rate` and `speed`, these are functions you can call on the `Converter` facade. Each of them have its own class where the units are defined as constants, to provide some strong typing.
 
 All of these functions accept the same parameters:
 
@@ -136,6 +136,17 @@ use LasePeCo\UnitConverter\Facades\Converter;
 use App\Units\Speed;
 
 Converter::speed(Speed::MeterPerSecond, Speed::FootPerSecond, 1); // return 3.28
+```
+
+### Volumetric flow rate
+
+The implemented volumetric flow rate units are: `CubicDecimeterPerHour, CubicMeterPerHour, CubicFootPerHour, CubicYardPerHour`.
+
+``` php
+use LasePeCo\UnitConverter\Facades\Converter;
+use App\Units\VolumetricFlowRate;
+
+Converter::volumetric_flow_rate(VolumetricFlowRate::CubicMeterPerHour, VolumetricFlowRate::CubicDecimeterPerHour, 1)); // return 1000
 ```
 
 ### Testing
