@@ -10,6 +10,6 @@ class VolumeTest extends TestCase
     /** @test */
     public function it_can_convert_yd_to_m()
     {
-        $this->assertEquals(7.65, Converter::volume(Volume::CubicYard, Volume::CubicMeter, 10));
+        $this->assertEquals(7.64, Converter::volume(Volume::CubicYard, Volume::CubicMeter, 10));
     }
 }

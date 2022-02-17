@@ -10,7 +10,7 @@ class LengthTest extends TestCase
     /** @test */
     public function it_can_convert_mm_to_in()
     {
-        $this->assertEquals(3.94, Converter::length(Length::Millimeter, Length::Inch, 100));
+        $this->assertEquals(3.93, Converter::length(Length::Millimeter, Length::Inch, 100));
     }
 
     /** @test */

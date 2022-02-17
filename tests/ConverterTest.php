@@ -58,7 +58,6 @@ class ConverterTest extends TestCase
     /** @test */
     public function it_returns_an_array_of_all_supported_systems()
     {
-        dd(Converter::getSupportedSystems());
         $this->assertIsArray(Converter::getSupportedSystems());
 
         $this->assertNotEmpty(Converter::getSupportedSystems());
