@@ -4,5 +4,5 @@ return [
     'mm/s' => 'Millimeter/Second',
     'm/s' => 'Meter/Second',
     'ft/s' => 'Foot/Second',
-    'yd' => 'Yard/Second',
+    'yd/s' => 'Yard/Second',
 ];
